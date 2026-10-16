@@ -8,30 +8,59 @@ st.set_page_config(
 )
 
 # ESTILOS
+
 st.markdown("""
 <style>
 .stApp {
-    background-color: #F7FCFC;
+    background-color: #F5FCFC;
+    color: #174B53;
 }
-h1, h2, h3 {
+
+h1 {
+    color: #087E8B;
+    font-size: 48px !important;
+    font-weight: 800;
+}
+
+h2, h3 {
     color: #087E8B;
 }
-.slogan {
-    color: #F28C45;
-    font-size: 22px;
-    text-align: center;
+
+p {
+    color: #34565B;
 }
-.producto {
-    background-color: #E4F7F7;
-    padding: 18px;
-    border-radius: 15px;
-    text-align: center;
-}
-.stButton button {
+
+.stButton > button {
     background-color: #087E8B;
     color: white;
-    border-radius: 10px;
+    border: none;
+    border-radius: 14px;
+    padding: 10px 20px;
+    font-weight: bold;
 }
+
+.stButton > button:hover {
+    background-color: #FF8066;
+    color: white;
+    border: none;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"] {
+    background-color: #E4F7F7;
+    border-radius: 18px;
+}
+
+section[data-testid="stSidebar"] {
+    background-color: #DDF4F3;
+}
+
+.slogan {
+    color: #FF8066;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
