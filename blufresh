@@ -1,161 +1,197 @@
-prompt = """
-Crea una aplicación web moderna, atractiva e interactiva para
-un emprendimiento llamado BLUFRESH, un local de verano ubicado
-frente a la playa que ofrece bebidas frías, refrescantes y
-visualmente creativas.
 
-IDENTIDAD DE MARCA:
-Nombre: BluFresh
-Eslogan: "Refresca tu verano"
-Concepto: bebidas frías inspiradas en el mar, la arena y los
-atardeceres. La marca debe transmitir frescura, diversión,
-tranquilidad y una experiencia veraniega inolvidable.
+import streamlit as st
 
-DISEÑO VISUAL:
-- Azul turquesa y azul océano como colores principales.
-- Beige arena, blanco espuma y coral como colores secundarios.
-- Degradados inspirados en los atardeceres.
-- Diseño moderno, juvenil, elegante y tropical.
-- Fotografías de bebidas con hielo, frutas, vasos transparentes
-  y decoraciones inspiradas en la playa.
-- Ilustraciones de olas, soles, palmeras y conchas.
-- Animaciones suaves y botones atractivos.
-- Interfaz adaptable a celulares, tablets y computadoras.
-- Logotipo que combine una ola, un sol y una bebida fría.
+st.set_page_config(
+    page_title="BluFresh | Refresca tu verano",
+    page_icon="🌊",
+    layout="wide"
+)
 
-1. PÁGINA DE INICIO:
-Crear una portada visual con una fotografía atractiva de una
-bebida fría frente al mar durante el atardecer.
-Mostrar el nombre BluFresh y el eslogan "Refresca tu verano".
-Incluir una breve descripción:
-"El sabor del verano en cada sorbo. Descubre bebidas frías
-inspiradas en el océano, la arena y los atardeceres".
-Agregar botones de "Explorar bebidas" y "Pedir ahora".
-Mostrar productos destacados y promociones de temporada.
+# ESTILOS
+st.markdown("""
+<style>
+.stApp {
+    background-color: #F7FCFC;
+}
+h1, h2, h3 {
+    color: #087E8B;
+}
+.slogan {
+    color: #F28C45;
+    font-size: 22px;
+    text-align: center;
+}
+.producto {
+    background-color: #E4F7F7;
+    padding: 18px;
+    border-radius: 15px;
+    text-align: center;
+}
+.stButton button {
+    background-color: #087E8B;
+    color: white;
+    border-radius: 10px;
+}
+</style>
+""", unsafe_allow_html=True)
 
-2. CATÁLOGO DE BEBIDAS:
-Crear un menú organizado mediante tarjetas visuales que incluyan
-fotografía, nombre, ingredientes, descripción, precio en soles
-(S/) y botón para agregar al carrito.
+# ENCABEZADO
+st.title("🌊 BluFresh")
+st.markdown(
+    '<p class="slogan">Refresca tu verano ☀️</p>',
+    unsafe_allow_html=True
+)
 
-Categorías y productos:
+st.image(
+    "https://images.unsplash.com/photo-1536935338788846bb9981813",
+    caption="Sabores refrescantes inspirados en el mar",
+    use_container_width=True
+)
 
-BEBIDAS INSPIRADAS EN EL MAR:
-- Blue Ocean: bebida azul inspirada en el océano.
-- Sea Breeze: bebida cítrica y refrescante.
-- Coco Beach: bebida fría con sabor a coco.
+st.write(
+    "¡Bienvenido a BluFresh! Descubre bebidas frías, "
+    "sabores tropicales y colores inspirados en el océano, "
+    "la arena y los atardeceres."
+)
 
-BEBIDAS INSPIRADAS EN LOS ATARDECERES:
-- Sunset Glow: bebida con tonos naranja y rosado.
-- Pink Paradise: bebida rosada con fresas.
-- Golden Hour: bebida tropical con mango y naranja.
+st.divider()
 
-LIMONADAS:
-- Limonada clásica.
-- Limonada de fresa.
-- Limonada de maracuyá.
-- Limonada tropical azul.
+# MENÚ
+st.header("🍹 Nuestra carta")
 
-FRAPPÉS:
-- Frappé de fresa.
-- Frappé de mango.
-- Frappé de chocolate.
-- Frappé de vainilla.
+bebidas = {
+    "Blue Ocean 🌊": {
+        "precio": 12,
+        "descripcion": "Bebida azul inspirada en el océano."
+    },
+    "Sunset Glow 🌅": {
+        "precio": 13,
+        "descripcion": "Bebida tropical con tonos de atardecer."
+    },
+    "Pink Paradise 🍓": {
+        "precio": 10,
+        "descripcion": "Refrescante bebida con sabor a fresa."
+    },
+    "Limonada Tropical 🍋": {
+        "precio": 8,
+        "descripcion": "Limonada fresca con un toque frutal."
+    },
+    "Coco Beach 🥥": {
+        "precio": 12,
+        "descripcion": "Bebida cremosa inspirada en la playa."
+    },
+    "Frappé de Mango 🥭": {
+        "precio": 11,
+        "descripcion": "Mango frío y textura cremosa."
+    }
+}
 
-Los precios deben ser editables. Utilizar precios de ejemplo
-en soles, claramente identificados como valores configurables.
-Permitir filtrar los productos por categoría y destacar las
-bebidas más populares.
+if "carrito" not in st.session_state:
+    st.session_state.carrito = {}
 
-3. PERSONALIZACIÓN:
-Permitir que los clientes personalicen sus bebidas mediante:
-- Tamaño del vaso.
-- Nivel de azúcar.
-- Cantidad de hielo.
-- Frutas adicionales.
-- Toppings y decoraciones.
-Actualizar el precio automáticamente cuando se seleccionen
-opciones adicionales con costo.
+categoria = st.selectbox(
+    "Selecciona una categoría",
+    ["Todas", "Tropicales", "Limonadas", "Frappés"]
+)
 
-4. CARRITO DE COMPRAS:
-Crear un carrito funcional que permita:
-- Agregar y eliminar bebidas.
-- Modificar cantidades.
-- Visualizar precios y subtotal.
-- Calcular el total automáticamente.
-- Añadir observaciones al pedido.
-- Confirmar el pedido.
-- Enviar el detalle del pedido por WhatsApp.
-Permitir seleccionar recojo en el local o entrega si el negocio
-ofrece este servicio.
+categorias = {
+    "Blue Ocean 🌊": "Tropicales",
+    "Sunset Glow 🌅": "Tropicales",
+    "Pink Paradise 🍓": "Tropicales",
+    "Limonada Tropical 🍋": "Limonadas",
+    "Coco Beach 🥥": "Tropicales",
+    "Frappé de Mango 🥭": "Frappés"
+}
 
-5. PEDIDOS:
-Crear una sección donde se visualicen los pedidos y sus estados:
-- Pendiente.
-- En preparación.
-- Listo para recoger.
-- Entregado.
+productos = [
+    nombre for nombre in bebidas
+    if categoria == "Todas" or categorias[nombre] == categoria
+]
 
-Solicitar únicamente los datos necesarios para procesar el pedido.
-No confirmar pedidos reales si no se ha conectado un sistema
-funcional de recepción de pedidos.
+columnas = st.columns(3)
 
-6. PANEL DE ADMINISTRACIÓN:
-Crear un acceso privado para el administrador que permita:
-- Agregar, editar y eliminar productos.
-- Actualizar precios, ingredientes y fotografías.
-- Marcar bebidas como disponibles o agotadas.
-- Gestionar pedidos y actualizar sus estados.
-- Consultar ventas e ingresos registrados.
-- Identificar los productos más vendidos.
-- Revisar un resumen de las ventas diarias.
+for i, nombre in enumerate(productos):
+    bebida = bebidas[nombre]
 
-Proteger las funciones administrativas mediante autenticación.
-No mostrar información privada del negocio a los clientes.
+    with columnas[i % 3]:
+        st.markdown(
+            f"""
+            <div class="producto">
+                <h3>{nombre}</h3>
+                <p>{bebida['descripcion']}</p>
+                <h3>S/ {bebida['precio']:.2f}</h3>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
 
-7. SECCIÓN SOBRE BLUFRESH:
-Crear una sección que explique que BluFresh nace de la idea
-de disfrutar el verano con bebidas refrescantes, combinando
-sabores tropicales con la belleza del mar, la arena y el sol.
-Transmitir cercanía, creatividad y pasión por ofrecer una
-experiencia diferente frente a la playa.
+        cantidad = st.number_input(
+            f"Cantidad: {nombre}",
+            min_value=1,
+            max_value=10,
+            value=1,
+            key=f"cantidad_{nombre}"
+        )
 
-8. EXPERIENCIA DEL CLIENTE:
-- Navegación sencilla e intuitiva.
-- Diseño responsive.
-- Botones claros y accesibles.
-- Búsqueda de bebidas por nombre.
-- Mensajes al agregar productos al carrito.
-- Promociones y productos destacados.
-- Información visible sobre precios y disponibilidad.
-- Acceso rápido al menú, carrito y contacto.
-- Enlaces a redes sociales configurables.
+        if st.button("Agregar al carrito", key=f"agregar_{nombre}"):
+            st.session_state.carrito[nombre] = (
+                st.session_state.carrito.get(nombre, 0) + cantidad
+            )
+            st.success(f"¡{nombre} agregado al carrito!")
 
-9. REQUISITOS TÉCNICOS:
-Construye una aplicación funcional, no solo una maqueta.
-Implementa el catálogo, los filtros, la personalización,
-el carrito y la gestión de pedidos.
-Utiliza una base de datos cuando sea necesario para guardar
-productos, precios y pedidos.
-Configura correctamente la autenticación del administrador.
-Si se requiere integrar WhatsApp o pagos digitales, indica
-qué credenciales y configuraciones se necesitan.
-No simules pagos, pedidos reales ni estadísticas inexistentes.
-Utiliza datos de prueba claramente identificados.
+st.divider()
 
-RESULTADO FINAL:
-Crear una aplicación comercial profesional para BluFresh,
-con una identidad visual única inspirada en el océano,
-la arena y los atardeceres.
+# CARRITO DE COMPRAS
+st.header("🛒 Tu carrito")
 
-La aplicación debe permitir que los clientes descubran,
-personalicen y soliciten bebidas frías de forma sencilla,
-mientras el propietario puede administrar los productos
-y pedidos desde un panel privado.
+if st.session_state.carrito:
+    total = 0
 
-Prioriza una estética memorable, una experiencia de compra
-agradable y una estructura que pueda adaptarse al crecimiento
-del emprendimiento.
-"""
+    for nombre, cantidad in list(st.session_state.carrito.items()):
+        precio = bebidas[nombre]["precio"]
+        subtotal = precio * cantidad
+        total += subtotal
 
-print(prompt)
+        col1, col2, col3 = st.columns([3, 1, 1])
+        col1.write(f"**{nombre}**")
+        col2.write(f"{cantidad} unidad(es)")
+        col3.write(f"S/ {subtotal:.2f}")
+
+        if st.button("Eliminar", key=f"eliminar_{nombre}"):
+            del st.session_state.carrito[nombre]
+            st.rerun()
+
+    st.subheader(f"Total: S/ {total:.2f}")
+
+    st.info(
+        "El pedido es una demostración. "
+        "Confirma la disponibilidad con el local."
+    )
+
+    if st.button("Vaciar carrito"):
+        st.session_state.carrito = {}
+        st.rerun()
+
+else:
+    st.write("Tu carrito está vacío. ¡Elige tu bebida favorita!")
+
+st.divider()
+
+# SOBRE NOSOTROS
+st.header("🏖️ Sobre BluFresh")
+
+st.write(
+    "BluFresh nace para convertir cada día de verano en una "
+    "experiencia refrescante. Nos inspiramos en el azul del mar, "
+    "la calidez de la arena y los colores mágicos del atardecer "
+    "para ofrecer bebidas frías, creativas y llenas de sabor."
+)
+
+# CONTACTO
+st.header("📍 Visítanos")
+
+st.write("Disfruta el verano con BluFresh, frente al mar.")
+st.write("📱 WhatsApp: agrega aquí el número de tu negocio.")
+st.write("📸 Instagram: agrega aquí tu cuenta.")
+
+st.caption("© 2026 BluFresh | Refresca tu verano 🌊")
