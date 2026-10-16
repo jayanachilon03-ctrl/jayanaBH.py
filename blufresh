@@ -1,0 +1,161 @@
+prompt = """
+Crea una aplicación web moderna, atractiva e interactiva para
+un emprendimiento llamado BLUFRESH, un local de verano ubicado
+frente a la playa que ofrece bebidas frías, refrescantes y
+visualmente creativas.
+
+IDENTIDAD DE MARCA:
+Nombre: BluFresh
+Eslogan: "Refresca tu verano"
+Concepto: bebidas frías inspiradas en el mar, la arena y los
+atardeceres. La marca debe transmitir frescura, diversión,
+tranquilidad y una experiencia veraniega inolvidable.
+
+DISEÑO VISUAL:
+- Azul turquesa y azul océano como colores principales.
+- Beige arena, blanco espuma y coral como colores secundarios.
+- Degradados inspirados en los atardeceres.
+- Diseño moderno, juvenil, elegante y tropical.
+- Fotografías de bebidas con hielo, frutas, vasos transparentes
+  y decoraciones inspiradas en la playa.
+- Ilustraciones de olas, soles, palmeras y conchas.
+- Animaciones suaves y botones atractivos.
+- Interfaz adaptable a celulares, tablets y computadoras.
+- Logotipo que combine una ola, un sol y una bebida fría.
+
+1. PÁGINA DE INICIO:
+Crear una portada visual con una fotografía atractiva de una
+bebida fría frente al mar durante el atardecer.
+Mostrar el nombre BluFresh y el eslogan "Refresca tu verano".
+Incluir una breve descripción:
+"El sabor del verano en cada sorbo. Descubre bebidas frías
+inspiradas en el océano, la arena y los atardeceres".
+Agregar botones de "Explorar bebidas" y "Pedir ahora".
+Mostrar productos destacados y promociones de temporada.
+
+2. CATÁLOGO DE BEBIDAS:
+Crear un menú organizado mediante tarjetas visuales que incluyan
+fotografía, nombre, ingredientes, descripción, precio en soles
+(S/) y botón para agregar al carrito.
+
+Categorías y productos:
+
+BEBIDAS INSPIRADAS EN EL MAR:
+- Blue Ocean: bebida azul inspirada en el océano.
+- Sea Breeze: bebida cítrica y refrescante.
+- Coco Beach: bebida fría con sabor a coco.
+
+BEBIDAS INSPIRADAS EN LOS ATARDECERES:
+- Sunset Glow: bebida con tonos naranja y rosado.
+- Pink Paradise: bebida rosada con fresas.
+- Golden Hour: bebida tropical con mango y naranja.
+
+LIMONADAS:
+- Limonada clásica.
+- Limonada de fresa.
+- Limonada de maracuyá.
+- Limonada tropical azul.
+
+FRAPPÉS:
+- Frappé de fresa.
+- Frappé de mango.
+- Frappé de chocolate.
+- Frappé de vainilla.
+
+Los precios deben ser editables. Utilizar precios de ejemplo
+en soles, claramente identificados como valores configurables.
+Permitir filtrar los productos por categoría y destacar las
+bebidas más populares.
+
+3. PERSONALIZACIÓN:
+Permitir que los clientes personalicen sus bebidas mediante:
+- Tamaño del vaso.
+- Nivel de azúcar.
+- Cantidad de hielo.
+- Frutas adicionales.
+- Toppings y decoraciones.
+Actualizar el precio automáticamente cuando se seleccionen
+opciones adicionales con costo.
+
+4. CARRITO DE COMPRAS:
+Crear un carrito funcional que permita:
+- Agregar y eliminar bebidas.
+- Modificar cantidades.
+- Visualizar precios y subtotal.
+- Calcular el total automáticamente.
+- Añadir observaciones al pedido.
+- Confirmar el pedido.
+- Enviar el detalle del pedido por WhatsApp.
+Permitir seleccionar recojo en el local o entrega si el negocio
+ofrece este servicio.
+
+5. PEDIDOS:
+Crear una sección donde se visualicen los pedidos y sus estados:
+- Pendiente.
+- En preparación.
+- Listo para recoger.
+- Entregado.
+
+Solicitar únicamente los datos necesarios para procesar el pedido.
+No confirmar pedidos reales si no se ha conectado un sistema
+funcional de recepción de pedidos.
+
+6. PANEL DE ADMINISTRACIÓN:
+Crear un acceso privado para el administrador que permita:
+- Agregar, editar y eliminar productos.
+- Actualizar precios, ingredientes y fotografías.
+- Marcar bebidas como disponibles o agotadas.
+- Gestionar pedidos y actualizar sus estados.
+- Consultar ventas e ingresos registrados.
+- Identificar los productos más vendidos.
+- Revisar un resumen de las ventas diarias.
+
+Proteger las funciones administrativas mediante autenticación.
+No mostrar información privada del negocio a los clientes.
+
+7. SECCIÓN SOBRE BLUFRESH:
+Crear una sección que explique que BluFresh nace de la idea
+de disfrutar el verano con bebidas refrescantes, combinando
+sabores tropicales con la belleza del mar, la arena y el sol.
+Transmitir cercanía, creatividad y pasión por ofrecer una
+experiencia diferente frente a la playa.
+
+8. EXPERIENCIA DEL CLIENTE:
+- Navegación sencilla e intuitiva.
+- Diseño responsive.
+- Botones claros y accesibles.
+- Búsqueda de bebidas por nombre.
+- Mensajes al agregar productos al carrito.
+- Promociones y productos destacados.
+- Información visible sobre precios y disponibilidad.
+- Acceso rápido al menú, carrito y contacto.
+- Enlaces a redes sociales configurables.
+
+9. REQUISITOS TÉCNICOS:
+Construye una aplicación funcional, no solo una maqueta.
+Implementa el catálogo, los filtros, la personalización,
+el carrito y la gestión de pedidos.
+Utiliza una base de datos cuando sea necesario para guardar
+productos, precios y pedidos.
+Configura correctamente la autenticación del administrador.
+Si se requiere integrar WhatsApp o pagos digitales, indica
+qué credenciales y configuraciones se necesitan.
+No simules pagos, pedidos reales ni estadísticas inexistentes.
+Utiliza datos de prueba claramente identificados.
+
+RESULTADO FINAL:
+Crear una aplicación comercial profesional para BluFresh,
+con una identidad visual única inspirada en el océano,
+la arena y los atardeceres.
+
+La aplicación debe permitir que los clientes descubran,
+personalicen y soliciten bebidas frías de forma sencilla,
+mientras el propietario puede administrar los productos
+y pedidos desde un panel privado.
+
+Prioriza una estética memorable, una experiencia de compra
+agradable y una estructura que pueda adaptarse al crecimiento
+del emprendimiento.
+"""
+
+print(prompt)
